@@ -1,0 +1,40 @@
+
+{% extends "base.html" %}
+
+
+{% load static %}
+
+{% block title %}
+  EXPLORE
+{% endblock title %}
+
+ 
+{% block content %}
+
+<div class="container-fluid p-3">
+  <div class="row">
+    <div class="card col-12 col-sm-6 col-md-6 col-lg-6 mt-3 "> 
+      <div class="card bg-dark text-white">
+        <img src="{% static '' %}img/gym1.jpg" class="card-img" alt="...">      
+      </div>
+    </div>
+    <div class="card col-12 col-sm-6 col-md-6 col-lg-6 mt-3 ">
+      <div class="card bg-dark text-white">
+        <img src="{% static '' %}img/gym6.jpg" class="card-img" alt="...">
+      </div>
+    </div>
+    <div class="card col-12 col-sm-6 col-md-6 col-lg-6 mt-3 ">
+      <div class="card bg-dark text-white">
+       <img src="{% static '' %}img/gym2.jpg" class="card-img" alt="...">
+      </div>
+    </div>
+
+    <div class="card col-12 col-sm-6 col-md-6 col-lg-6 mt-3 "> 
+      <div class="card bg-dark text-white">
+        <img src="{% static '' %}img/gym3.jpg" class="card-img" alt="...">
+      </div>
+    </div>
+  </div>
+</div> 
+{% endblock content %}
+   

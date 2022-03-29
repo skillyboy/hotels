@@ -1,0 +1,142 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}      
+body{
+    font-family: 'Montserrat' , sans-serif;
+  }
+  
+
+.dropdown-menu .dropdown-item:hover{
+    background: goldenrod !important;
+}
+
+.main-footer{
+padding:70px 0;
+display:flex;
+justify-content: space-evenly;
+background-color: #19302E;
+}  
+
+.main-footer ul {
+   list-style: none;
+} 
+.main-footer h1{
+    font-size:22px 0;
+    line-height:117%;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-weight: 500;
+} 
+.main-footer h2 {
+    color: #ffffff;
+    font-weight: 500;
+ }
+.main-footer ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+footer{
+    background-color: #19302E;
+    border-top:1px solid #6EB981;
+    font-size:17px;
+    padding: 15px 5px;
+    color: #ffffff;
+    text-align:center;
+} 
+
+.main-footer h2 {
+    color: #ffffff;
+    text-decoration: none;
+}
+.logininfo p {
+    color: #6EB981;
+    font-size:17px;
+    margin-top: 5px;
+}
+.contact_details{
+    margin-top: 20px;
+}
+.contact_details li{
+    list-style: none;
+    margin: 10px 0;
+}
+.contact_details li a{
+    text-decoration: none;
+    color: #f1f1f1;
+}
+.contact_details .fa{
+    margin-right: 10px;
+    color: #f1f1f1;
+}
+.sociallogos .logobox a{
+    padding:0 10px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 22px;
+}
+.com ul li{
+    padding:5px 0;
+}
+@media only screen and (max-width: 749px) {
+    .main-footer{
+        padding:20px;
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+    }
+        .info{
+            padding: 20px 0;
+    }      
+}
+
+
+
+
+.carousel-item {
+    color: black !important;
+}
+
+.carousel{
+    background-color:black !important ;
+}
+.motto { text-align: center }
+
+.container img{
+    margin: auto;
+}
+
+.card-body{
+    margin: auto; 
+    margin-top: 0px;
+    background:rgba(134, 89, 4, 0.849)
+}
+
+.container{
+    text-align: center
+}
+
+.carousel-item img{
+    margin: auto;
+}
+.bg-dark{
+    background-color: black !important;}
+
+.footer{
+    color: white;
+}
+
+.index{
+    background-color : rgba(51, 38, 2, 0.425) !important;}
+
+.bg-warning{
+    background-color: rgba(171, 209, 2, 0.438);
+}
+
+.roomdis{
+    box-shadow: 0 0 20px 0 rgba(51, 38, 2, 0.425);
+    transition: transform .5s;
+}
+.roomdis:hover{
+    transform:translateY(50px);
+}

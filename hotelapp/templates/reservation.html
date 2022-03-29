@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% load mathfilters %}
+
+{% block title %}Reservations {% endblock title %}
+
+{% block content %}
+  
+<!-- content section -->
+<div class="container bg-warning mt-5 mb-5">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 p-5">
+            <p><td><a href="{% url 'categories' %}" class="btn btn-dark">Add room</a></td></p>
+            <table class="table bg-warning">
+                <thead class="bg-secondary text-light">
+                    <tr>
+                        <th scope="col">Delete</th>
+                        <!-- <th scope="col"></th>  -->
+                        <th scope="col">Price</th>
+                        <th scope="col">Night(s)</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Check In</th>
+                        <th scope="col">Update Check In</th>
+                        <th scope="col">Check Out</th>
+                        <th scope="col">Update Check Out</th>
+                    </tr>
+                </thead>
+                <tbody class=" text-dark">
+                    {% if reservation %}
+                        {% for item in reservation %}
+                            <tr>
+                                <td>    
+                                    <form method="POST" action="{% url 'deleteitem' %}">
+                                    {% csrf_token %}
+                                        <input type="hidden" name="itemid" value="{{item.id}}">
+                                        <button type="submit" class="btn btn-danger">&times;</button>
+                                    </form>
+                                </td>
+                                <!-- <th scope="row">{{item.room.description}}</th>  -->
+                                <td>{{item.room.price|floatformat:2|intcomma}}</td>  
+                                <td>{{item.nights}}</td>
+                                <td>{{item.room.price|mul:item.nights|floatformat:2|intcomma}}</td>
+                                
+                                <form action="{% url 'increase' %}" method="POST">   
+                                {% csrf_token %}  
+                                    <td> {{item.check_in}}</td>
+                                        <td> <input type="date" name="check_in" value="{{item.check_in}}"></td>
+                                    <input type="hidden" name="valid" value="{{item.id}}">
+                                    <td>{{item.check_out}}</td>
+                                    <input type="hidden" name="valid" value="{{item.id}}">
+                                    <td><input type="date" name="check_out" value="{{item.check_out}}">
+                                    <button class="btn btn-dark"  type="submit">Update</button>
+                                    </td>
+                                </form> 
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                </tbody> 
+                <tbody class="bg-dark text-light">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Subtotal: {{subtotal}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Vat: {{vat}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Total:{{total}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="{% url 'checkout' %}" class="btn btn-dark">  <i class="bi bi-forward-fill"></i>  Proceed</a></td>
+                       
+                </tbody>
+            </table>   
+        </div>  
+    </div>      
+</div>  
+    {% endblock content %}

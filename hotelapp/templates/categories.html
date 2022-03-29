@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+{% load static %}
+
+{% block title %}
+  CATEGORIES
+{% endblock title %}
+
+ 
+{% block content %}
+
+<div class="container-fluid p-3 bg-warning">
+  <div class="row">
+    {% if  categories %}
+      {% for item  in  categories %}
+      <div class="categories">
+        <div class="row container-fluid text-center mt-2 mb-2 m-auto bg-secondary ">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-4 mb-3 "><a href="{% url 'category' item.id %}"><img src="{{item.image.url}}" width=100% ></div></a> 
+            <div class="card col-12 col-sm-12 col-md-6 col-lg-6 mt-4 mb-3 bg-secondary">
+              <div class="card-header text-center bg-dark text-light"><a href="{% url 'category' item.id %}"><i><h5>{{item.title}}</h5></i></a></div>
+              <div class="card-body">
+                <p class="card-text">Approximate room size: 136 m2 | <br> Maximum number of guests: 2 adults Our Suite includes the amenities of an Executive Room and much more. For the ultimate accommodation, choose our Presidential Suite, which is a two (2) bedroom suite and a separate living area which offers a spectacular view of the water front and the hotel’s infinity pool. Enjoy deluxe touches like a Jacuzzi bathtub and a bicycle ergometer for your fitness needs..</p>   
+                </p>   
+                    <br>   
+                    <a href="{% url 'category' item.id %}" class="btn btn-dark">BOOK</a>                 
+              </div>     
+              </div> 
+        </div >  
+      </div>
+    {% endfor %}
+      {% endif %} 
+  </div>
+</div> 
+{% endblock content %}
+   

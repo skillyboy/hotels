@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block content %}
+
+{% block banner %}  {% include "carousel.html" %} {% endblock banner %}
+<!-- INDEX -->
+<div class="index container-fluid card bg-secondary mr-3" >
+  <!-- HEADING -->
+  <div class="index container ">
+    <div class="motto container bg-warning"> 
+      <p class="card-title text-center font-weight-bold">
+        <h1><i><u>a fine blend of luxury and comfort</u></i></h1>
+      </p>
+    </div>
+  </div> 
+  <!-- room caregory loop -->
+  <div class="row  bg-warning container-fluid mb-3 ml-1 " >
+    <div class="container-fluid mt-3 mb-3">
+      <div class="container-fluid mt-4 mb-3">
+        <div class="row mx-auto"> 
+          {% if categories %}
+          {% for item  in categories %}
+          <div class="roomdis container card col-12 col-sm-12 col-md-4 col-lg-3 w-25 mt-15 bg-dark" >
+            <a href="{% url 'category' item.id %}"><img src="{{item.image.url}}" class="card-img-top" alt="..."></a>
+            <h3 class="card-title text-center font-weight-bold"> </h3>
+            <div class="card bg-secondary">
+              <p class="card-title"><h4>{{item.title}}</h4></p>
+              <a href="{% url 'category' item.id %}" class="btn btn-dark">View</a>
+            </div>
+          </div>
+          {% endfor %}
+          {% endif %}        
+        </div>        
+      </div> 
+    </div>
+    <!-- Our Services and standards  -->
+    <div class="row container mt-5 mx-auto ">
+      <div class="container card col-6 col-sm-6 col-md-6 col-lg-6 mt-2 w-50"> 
+        <p class="card-title text-center font-weight-bold font-weight-light font-italic text-lowercase w-50">
+          <i class="text-secondary"><h2> <br> - Our Services and standards </h2></i>
+        </p>
+      </div>
+      <div class="container card col-6 col-sm-6 col-md-6 col-lg-6 mt-2 w-50"> 
+        <p class="card-title text-center">
+          <i><h6 class="font-weight-light text-lowercase "> The hotel features non-smoking rooms with climate control, lounge area and sound-proofed windows for guests' use. Some of the en suite units have views of the sea. Certain units are equipped with a fridge, coffee/tea makers and glassware.   
+            Salma's Authentic Lebanese Cuisine is an a la carte restaurant specialised in Middle Eastern cuisine. The café bar features a TV and a spacious terrace. Relax in an outdoor pool or enjoy a living area, a flat screen TV and a bar.
+          </h6></i>
+        </p>
+      </div>
+    </div>
+
+    <div class="container mt-5 text-center text-warning bg-dark">
+      <h4> <strong><i>Our services</i></strong></h4>
+    </div> 
+ 
+     <!-- Packs and preset note    -->
+    <div class="card-columns mt-4">
+      <div class="card">
+        <img src="{% static '' %}img/gymc.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Gym</h5>
+          <p class="card-text">The café bar features a TV and a spacious terrace. Relax in an outdoor pool or enjoy a living area, a flat screen TV and a bar..</p>
+          <p class="card-text"><a href="{% url 'gym'%}" class="btn btn-dark">View</a></p>
+        </div>
+      </div>
+      <div class="card p-3">
+        <blockquote class="blockquote mb-0 card-body">
+          <p> Certain units are equipped with a fridge, coffee/tea makers and glassware. .</p>
+          <footer class="blockquote-footer">
+            <small class="text-muted">
+              Someone famous in <cite title="Source Title">Source Title</cite>
+            </small>
+          </footer>
+        </blockquote>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <img src="{% static '' %}img/kit5.jpg" class="card-img-top" alt="...">
+          <h5 class="card-title mt-3">Intercontinental dishes</h5>
+          <p class="card-text">  
+            Salma's Authentic Lebanese Cuisine is an a la carte restaurant specialised in Middle Eastern cuisine. The café bar features a TV and a spacious terrace. Relax in an outdoor pool or enjoy a living area, a flat screen TV and a bar.
+          </p>
+        </div>
+      </div>
+      <div class="card bg-primary text-white text-center p-3">
+        <blockquote class="blockquote mb-0">
+          <p> Certain units are equipped with a fridge, coffee/tea makers and glassware. </p>
+          <footer class="blockquote-footer text-white">
+            <small>
+              Someone famous in <cite title="Source Title">Source Title</cite>
+            </small>
+          </footer>
+        </blockquote>
+      </div>
+      <div class="card text-center ">
+        <div class="card-body">
+          <h5 class="card-title">Patronize us today</h5>
+          <p class="card-text"> Certain units are equipped with a fridge, coffee/tea makers and glassware. </p>
+        </div>
+      </div>
+      <img src="{% static '' %}img/caro7.jpg" class="card-img-top" alt="...">
+      <div class="card">
+      </div>
+      <div class="card p-3 text-right">
+       <blockquote class="blockquote mb-0">
+          <p> Certain units are equipped with a fridge, coffee/tea makers and glassware. .</p>
+          <footer class="blockquote-footer">
+            <small class="text-muted">
+              Someone famous in <cite title="Source Title">Source Title</cite>
+            </small>
+          </footer>
+        </blockquote>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Hotel</h5>
+          <p class="card-text">The café bar features a TV and a spacious terrace. Relax in an outdoor pool or enjoy a living area, a flat screen TV and a bar..</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+       <!-- gym  -->
+      <button class="mx-auto m-3 col-12 col-sm-12 col-md-12 col-lg-12 bg-dark" style="color: rgb(38, 51, 7)" ><a href="#uppage"> UP PAGE  <i class="bi bi-chevron-double-up"></i></a></button>
+    <!-- yellow container done -->  
+<!--  </div>-->
+</div>
+<!-- index done -->
+</div>   
+
+
+
+{% endblock content %}
+
+

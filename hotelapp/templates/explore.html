@@ -1,0 +1,66 @@
+
+{% extends "base.html" %}
+
+
+{% load static %}
+
+{% block title %}
+  EXPLORE
+{% endblock title %}
+
+ 
+{% block content %}
+
+<div class="container-fluid p-3 bg-secondary">
+  <div class="row">
+    <div class="card col-12 col-sm-6 col-md-6 col-lg-6 mt-3 bg-secondary"> 
+    <div class="card bg-dark text-white">
+      <img src="{% static '' %}img/kit5.jpg" class="card-img" alt="...">
+      <div class="card-img-overlay">
+        <h5 class="card-title">KITCHEN</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><a href="{% url 'contact' %}" class="btn btn-dark">Place Order</a></p>
+      </div>
+      
+    </div>
+    </div>
+
+    <div class="card col-12 col-sm-6 col-md-6 col-lg-6 mt-3 bg-secondary">
+    <div class="card bg-dark text-white">
+      <img src="{% static '' %}img/caro1.jpg" class="card-img" alt="...">
+      <div class="card-img-overlay">
+        <h5 class="card-title">ROOMS</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><a href="{% url 'rooms' %}" class="btn btn-dark">EXPLORE</a></p>
+      </div>
+    </div>
+    </div>
+
+    <div class="card col-12 col-sm-6 col-md-6 col-lg-6 mt-3 bg-secondary">
+    <div class="card bg-dark text-white">
+      <img src="{% static '' %}img/gymc.jpg" class="card-img" alt="...">
+      <div class="card-img-overlay">
+        <h5 class="card-title">GYM</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><a href="{% url 'gym' %}" class="btn btn-dark">Gallery</a></p>
+      </div>
+    </div>
+    </div>
+
+    <div class="card col-12 col-sm-6 col-md-6 col-lg-6 mt-3 bg-secondary"> 
+      <div class="card bg-dark text-white">
+        <img src="{% static '' %}img/caro5.jpg" class="card-img" alt="...">
+        <div class="card-img-overlay">
+          <h5 class="card-title">RESTAURANT</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><a href="{% url 'contact' %}" class="btn btn-dark">CONTACT</a></p>
+        </div>
+        
+      </div>
+      </div>
+  
+
+  </div>
+</div> 
+{% endblock content %}
+   

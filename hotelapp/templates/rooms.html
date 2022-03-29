@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+all rooms
+{% endblock title %}
+
+{% block content %}
+<div class="container-fluid mt-5 mb-5 ">
+    <div class="row mx-auto"> 
+    {% if available %}
+            {% for item  in available %}
+            <div class="container card col-6 col-sm-6 col-md-4 col-lg-4 w-25" >
+              <img src="{{item.image.url}}" class="card-img">
+                      <h3 class="card-title text-center font-weight-bold"> </h3> 
+                  <div class="card">
+                      <div class="card-body">
+                          <h5 class="card-title"><h4>{{item.name}}</h4></h5>
+                            <p class="card-text"><h6>{{item.description}}</h6></p>
+                            <p class="card-text">#{{item.price|floatformat:2}}</p>
+                          <a href="{% url 'room' item.id %}" class="btn btn-dark">Book</a>                       
+                      </div>   
+                  </div>
+          </div>
+            {% endfor %}
+    {% endif %}    
+    </div> 
+</div>
+{% endblock content %}
+
+
+<!-- Business class ROOMS DONE  --> 
+
+
+
+

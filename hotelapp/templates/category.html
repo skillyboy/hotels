@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+
+{% load static %}
+
+{% block title %}
+    {{room.title|title}} Category
+{% endblock title %}
+
+{% block content %}
+
+
+<div class=" category bg-dark">
+    <h1 class="text-center text-white mb-5">{{room.title|title}}</h1>
+    <div class="container bg-secondary ml-10"> 
+        <div class="row mx-auto">
+        {% if classroom %}
+            {% for item  in classroom %}
+                <div class=" container card col-12 col-sm-12 col-md-6 col-lg-4 mt-5 mb-1 p-2 bg-warning">
+                <a href="{% url 'room' item.id %}"><img src="{{item.image.url}}" class="card-img-top" height="250" alt="..."></a>
+                    <div class="card bg-secondary">
+                        <div class="card-body">
+                            <i><h3 class="card-title">{{item.description}}</h3></i>
+                            <h2 class="card-title container-fluid bg-warning text-center">{{item.category}}</h2>
+                            <p class="card-text">#{{item.price|floatformat:2}}</p>
+                            <a href="{% url 'room' item.id %}" class="btn btn-dark">BOOK</a>                       
+                        </div>   
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}    
+        </div> 
+    </div>
+</div>    
+{% endblock content %}
+
+
+
+

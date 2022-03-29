@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load humanize %}
+
+{% load mathfilters %}
+
+{% block title %}Reservations {% endblock title %}
+
+{% block content %}
+<!-- content section -->
+<div class="container bg-warning">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 p-5">
+            <p class="card-text"><a href="{% url 'reservation' %}" class="btn btn-dark"><i class="bi bi-skip-backward-fill"></i>  Back</a></p>
+            <table class="table bg-warning">
+                <thead class="bg-secondary text-light">
+                    <tr>
+                        <th scope="col">Room</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Check In</th>
+                        <th scope="col">Check Out</th>
+                    </tr>
+                </thead>
+                <tbody class=" text-dark">
+                    {% if reservation %}
+                        {% for item in reservation %}
+                        <tr>
+                            <th scope="row">{{item.room.description}}</th>
+                            <td>{{item.room.price|floatformat:2|intcomma}}</td>  
+                            <td>{{item.room.price|mul:item.nights|floatformat:2|intcomma}}</td></td>           
+                            <td>{{item.check_in}}</td>
+                            <td>{{item.check_out}}</td>        
+                        </tr>
+                        {% endfor %}
+                    {% endif %}
+                </tbody> 
+                <tbody class="bg-dark text-light">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <th>Total: # {{total}}</th>
+                    </tr>
+                      </tbody>
+                    </table>
+                </tbody>
+            </table>
+        </div>
+        <form class ='mx-auto' style="width:400px;" method="POST" action="{% url 'placeorder' %}">
+        {% csrf_token %}
+                <p><i><b><u>Booking Details</u></b></i></p>
+            <div class="form-group">
+                <input type="text" name="first_name" placeholder="First name" id="exampleInputText1" class="form-control" value="{{user.first_name}}">
+            </div>
+            <div class="form-group">
+                <input type="text" name="last_name" placeholder="Last name" id="exampleInputText1" class="form-control" value="{{user.last_name}}"  >
+            </div>
+            <div class="form-group">
+                <input type="text" name="phone" placeholder="Phone number" id="exampleInputText1"  class="form-control" >
+            </div>
+            <div class="form-group">
+                <input type="text" name="email" placeholder="Email" id="exampleInputText1" class="form-control" value="{{user.email}}"  >
+            </div >
+            <input type="hidden" name="total" value="{{total}}">
+            <input type="hidden" name="reservation_code" value="{{reservation_code}}">
+            <button type="submit" class="btn btn-secondary"><i class="bi bi-credit-card-fill"></i> Proceed</button>
+            <div class='pay mt-4 ml-auto'>
+                <ul class="list-inline">
+                    <li class="list-inline-item"> <img src="{% static '' %}img/master.jpg" width="70px" alt=""> </li>
+                    <li class="list-inline-item"> <img src="{% static '' %}img/verve1.jpg" width="70px" alt=""> </li>
+                </ul>
+            </div>
+        </form>
+    </div>      
+</div>  
+{% endblock content %}

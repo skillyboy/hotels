@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Book Room
+{% endblock title %}
+
+
+{% block content %}
+<!-- categories section -->
+<div class="container-fluid bg-warning text-center p-2 ">
+    <!-- BOX1 -->
+    <i><h2>BOOK A ROOM</h2></i> 
+    <div class=" container bg-secondary">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 p-1 mx-auto " >
+            <div class="card text-light bg-dark ml-5 mt-1 mr-5 ">
+                <img height="250" src="{{room.image.url}}" class="card-img-top w-100" >
+                <div class="card-body col-12 col-sm-12 col-md-12 col-lg-12">
+                    <h6 class="card-title"> {{room.name}}</h6>
+                     <i><h5 class="card-title"> #{{room.price|floatformat:2}}</h5></i>  
+                    {% comment %} <p class="card-title"> Room {{room.description}} </p> {% endcomment %}
+                </div>
+                    <form  method="POST" action="{% url 'addtocart' %}" >
+                    {%csrf_token%}
+                        <input type="hidden" name="itemid" value="{{room.id}}">
+                        <div class="input div">
+                        <label for="Check_in">Check in</label>
+                        <input type="date" id="check_in" name="check_in" required>
+                        </div>
+                        <div class="input div">
+                        <label for="Check_out">Check out</label>
+                        <input type="date" id="check_out" name="check_out" required> <br>
+                        <button type="submit" class="btn btn-secondary"> <i class="bi bi-bookmark-check"> </i> BOOK</button>
+                        </div>  
+                    </form>
+            </div>
+         </div>
+            <!-- BOX1 DONE-->
+    </div>
+</div>
+ <!-- end of child of container  -->
+{% endblock content %}

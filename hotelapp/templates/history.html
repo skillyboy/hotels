@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load humanize %}
+
+{% load mathfilters %}
+
+{% block title %} WELCOME {% endblock title %}
+
+{% block content %}
+<!-- categories section -->
+<div class="container-fluid bg-warning text-center p-3 ">
+    <!-- BOX1 -->
+    <h1> <span>{{client.username|title}}</span></h1>
+    <i><h2>Booking History</h2></i> 
+    <div class="container bg-dark text-light m-auto">
+        {% comment %} <h5> <u>Payment details</u></h5> {% endcomment %}
+        {% comment %} <p>Amount paid : # {{total|floatformat:2|intcomma}}</p> {% endcomment %}
+    </div>
+    <div class="container bg-secondary"> 
+        <div class="container mt-4 mb-3 text-light">  
+            <table class="table bg-warning">
+              <thead class="bg-dark text-light">
+                  <tr>
+                      <th scope="col">Room type</th>
+                      <th scope="col">Reservation code</th>
+                      <th scope="col">Night(s)</th>
+                      <th scope="col">Room Number</th>
+                      <th scope="col">Amount</th>
+                  </tr>
+              </thead>  
+              <tbody class="text-light bg-secondary">
+                  {% if pay %}
+                    {% for item in pay %}
+                      <tr>
+                          <th scope="row">{{item.room.category}}</th>
+                          <td>{{item.id}}</td>  
+                          <td>{{item.nights}}</td></td>           
+                          <td>{{item.room.description}} </td>
+                          <td>{{item.amount|floatformat:2|intcomma}}</td>        
+                      </tr>
+                    {% endfor %}
+                  {% endif %}
+              </tbody> 
+                  </table>
+              </tbody>
+          </table>            
+        </div>
+        <!-- BOX1 DONE-->
+      </div>
+    <i><h4> Enjoy your stay !</h4></i>
+    <p><a href="{% url 'index' %}"> <button type="submit" class="btn btn-secondary">Home</button></a></p>  
+</div>
+
+
+ <!-- end of child of container  -->
+{% endblock content %}
+
+<!-- Business class ROOMS DONE  --> 
+
+
+
